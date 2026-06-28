@@ -1,0 +1,351 @@
+:root {
+  --bg: #16151a;
+  --bg-alt: #201f26;
+  --texto: #f0edf6;
+  --titulo: #efe4e2;
+  --suave: #938f98;
+  --primaria: #9a4f9c;
+  --primaria-forte: #6a2e6e;
+  --metal: #c2bcc2;
+  --borda: rgba(194, 188, 194, 0.16);
+
+  --serif: "New York Extra Large", "New York", Georgia, "Times New Roman", serif;
+  --sans: "SF Pro Text", "SF Pro", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --mono: "CommitMono Nerd Font", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+/* tema claro, o js poe a classe .tema-claro no <html> quando clica no botao */
+.tema-claro {
+  --bg: #f4eef2;
+  --bg-alt: #ffffff;
+  --texto: #16151a;
+  --titulo: #16151a;
+  --suave: #6a6470;
+  --primaria: #6a2e6e;
+  --primaria-forte: #6a2e6e;
+  --metal: #8a8390;
+  --borda: #d8c8d8;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--texto);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* menu fixo do topo */
+.topo {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--borda);
+}
+
+.nav {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0.8rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.marca {
+  font-family: var(--serif);
+  font-weight: 560;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  color: var(--titulo);
+  text-decoration: none;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.menu a {
+  text-decoration: none;
+  color: var(--texto);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.menu a:hover { color: var(--primaria); }
+
+/* botoes todos no estilo chip */
+.btn-tema {
+  background: none;
+  border: 1px solid var(--metal);
+  color: var(--texto);
+  padding: 0.35rem 0.8rem;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.btn-tema:hover { border-color: var(--primaria); color: var(--primaria); }
+
+/* hamburguer fica escondido no desktop */
+.hamburguer {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.hamburguer span {
+  width: 26px;
+  height: 2px;
+  background: var(--texto);
+}
+
+/* secoes */
+.secao {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 4rem 1.2rem;
+  scroll-margin-top: 70px; /* desconta o menu fixo nas ancoras */
+}
+
+.secao.alt { background: var(--bg-alt); max-width: none; }
+.secao.alt > * { max-width: 1080px; margin-left: auto; margin-right: auto; }
+
+.secao h2 {
+  font-family: var(--serif);
+  font-weight: 560;
+  font-size: 2.4rem;
+  letter-spacing: -0.02em;
+  color: var(--titulo);
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+.secao h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 2px;
+  background: var(--primaria);
+  margin-top: 0.5rem;
+}
+
+.subtitulo { color: var(--suave); margin-bottom: 2rem; }
+
+/* topo da pagina (sobre mim) */
+.hero { padding-top: 5rem; padding-bottom: 5rem; }
+.hero-conteudo {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+/* monograma no lugar da foto */
+.avatar {
+  flex-shrink: 0;
+  width: 160px;
+  height: 160px;
+  border: 1px solid var(--metal);
+  background: var(--primaria-forte);
+  color: var(--titulo);
+  font-family: var(--serif);
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* saudacao em mono maiusculo */
+.saudacao {
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+  color: var(--suave);
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 560;
+  font-size: 3rem;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--titulo);
+  margin: 0.4rem 0;
+}
+.cargo { color: var(--primaria); font-weight: 600; margin-bottom: 0.8rem; }
+.bio { max-width: 560px; color: var(--texto); }
+
+.hobbies {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 1.2rem 0;
+}
+.hobbies li {
+  border: 1px solid var(--metal);
+  padding: 0.4rem 0.9rem;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+  color: var(--suave);
+}
+
+/* botoes e links */
+.botao {
+  display: inline-block;
+  background: none;
+  color: var(--texto);
+  border: 1px solid var(--metal);
+  padding: 0.7rem 1.4rem;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.8rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.botao:hover { border-color: var(--primaria); color: var(--primaria); }
+
+.link { color: var(--primaria); text-decoration: none; font-weight: 600; }
+.link:hover { text-decoration: underline; }
+
+/* grade de cards */
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.card {
+  background: var(--bg-alt);
+  border: 1px solid var(--borda);
+  padding: 1.5rem;
+}
+.card h3 { margin-bottom: 0.8rem; color: var(--primaria); }
+
+.lista-tempo { list-style: none; }
+.lista-tempo li { margin-bottom: 1rem; }
+.lista-tempo strong { display: block; }
+.lista-tempo span { color: var(--suave); font-size: 0.9rem; }
+
+.projeto { padding: 0; overflow: hidden; }
+/* "fundo" do projeto */
+.projeto-img {
+  aspect-ratio: 600 / 340;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+  background: var(--primaria-forte);
+  border-bottom: 1px solid var(--metal);
+  color: var(--titulo);
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.9rem;
+}
+.projeto h3, .projeto p, .projeto .link { margin-left: 1.2rem; margin-right: 1.2rem; }
+.projeto h3 { margin-top: 1rem; }
+.projeto .link { display: inline-block; margin-bottom: 1.2rem; }
+
+/* form */
+.form { max-width: 520px; }
+.campo { margin-bottom: 1.2rem; display: flex; flex-direction: column; }
+.campo label { font-weight: 600; margin-bottom: 0.3rem; }
+.campo input, .campo textarea {
+  padding: 0.7rem;
+  border: 1px solid var(--borda);
+  background: var(--bg-alt);
+  color: var(--texto);
+  font-size: 1rem;
+  font-family: inherit;
+}
+.campo input:focus, .campo textarea:focus {
+  outline: none;
+  border-color: var(--primaria);
+}
+/* js poe essa classe quando o campo ta invalido */
+.campo input.invalido, .campo textarea.invalido { border-color: #e5484d; }
+.erro { color: #e5484d; font-size: 0.85rem; min-height: 1rem; margin-top: 0.2rem; }
+
+.contatos-extra { list-style: none; margin-top: 2rem; color: var(--texto); }
+.contatos-extra li { margin-bottom: 0.6rem; }
+/* rotulinho mono antes de cada contato (email, github...) */
+.rotulo {
+  display: inline-block;
+  min-width: 5.5rem;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.7rem;
+  color: var(--suave);
+}
+
+/* rodape */
+.rodape {
+  text-align: center;
+  padding: 2rem 1.2rem;
+  background: var(--bg-alt);
+  border-top: 1px solid var(--borda);
+  color: var(--suave);
+  font-size: 0.9rem;
+}
+
+/* modal */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.modal.aberto { display: flex; }
+.modal-caixa {
+  background: var(--bg-alt);
+  border: 1px solid var(--metal);
+  padding: 2rem;
+  max-width: 400px;
+  text-align: center;
+}
+.modal-caixa h3 { color: var(--primaria); margin-bottom: 0.6rem; }
+.modal-caixa p { color: var(--suave); margin-bottom: 1.4rem; }
+
+/* responsivo, ajustes pro celular */
+@media (max-width: 720px) {
+  .hamburguer { display: flex; }
+  .menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    background: var(--bg-alt);
+    border-bottom: 1px solid var(--borda);
+    padding: 1rem 1.2rem;
+    gap: 1rem;
+  }
+  /* o js poe .aberto quando clica no hamburguer */
+  .menu.aberto { display: flex; }
+  .hero h1 { font-size: 2rem; }
+  .hero-conteudo { flex-direction: column; text-align: center; }
+  .hobbies { justify-content: center; }
+}
