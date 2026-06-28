@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!-- Jorge Eduardo Miranda Correa, RU 4853599. -->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jorge Eduardo Miranda Correa - Portfólio</title>
+  <link rel="stylesheet" href="css/estilo.css" />
+</head>
+<body>
+  <!-- menu fixo no topo -->
+  <header class="topo">
+    <nav class="nav" aria-label="Menu principal">
+      <a class="marca" href="#sobre">Jorge Eduardo Miranda Correa</a>
+
+      <!-- botao hamburguer (mobile) -->
+      <button id="btnMenu" class="hamburguer" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul id="listaMenu" class="menu">
+        <li><a href="#sobre">Sobre mim</a></li>
+        <li><a href="#formacao">Formação</a></li>
+        <li><a href="#portfolio">Portfólio</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li>
+          <!-- dark/light -->
+          <button id="btnTema" class="btn-tema" aria-label="Alternar tema claro/escuro">claro</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- sobre mim -->
+    <section id="sobre" class="secao hero">
+      <div class="hero-conteudo">
+        <!-- monograma -->
+        <div class="avatar" role="img" aria-label="Jorge Eduardo Miranda Correa">JC</div>
+        <div>
+          <p class="saudacao">Olá, eu sou</p>
+          <h1>Jorge Eduardo Miranda Correa</h1>
+          <p class="cargo">Analytics Engineer · Brasil (remoto)</p>
+          <p class="bio">
+            Sou Analytics Engineer e trabalho com dados há mais de 5 anos, em projetos nos
+            EUA e na América Latina. No dia a dia faço modelagem de dados com dbt, otimização
+            de pipelines em SQL e validação de dados com Pydantic. Já entreguei resultados que
+            somaram mais de US$ 300 mil em impacto pro negócio. Hoje também curso Ciência de
+            Dados na UNINTER.
+          </p>
+          <ul class="hobbies">
+            <li>Tecnologia &amp; dados</li>
+            <li>Leitura</li>
+            <li>Música</li>
+          </ul>
+          <a class="botao" href="#contato">Fale comigo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- formacao -->
+    <section id="formacao" class="secao">
+      <h2>Formação</h2>
+      <div class="grade">
+        <article class="card">
+          <h3>Educação</h3>
+          <ul class="lista-tempo">
+            <li>
+              <strong>Tecnólogo em Ciência de Dados</strong>
+              <span>UNINTER · conclusão prevista em 2026</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Certificações</h3>
+          <ul class="lista-tempo">
+            <li>
+              <strong>Claude Certified Architect - Foundations</strong>
+              <span>Anthropic</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Idiomas</h3>
+          <ul class="lista-tempo">
+            <li><strong>Português</strong><span>Nativo</span></li>
+            <li><strong>Inglês</strong><span>Avançado</span></li>
+            <li><strong>Espanhol</strong><span>Intermediário</span></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- portfolio -->
+    <section id="portfolio" class="secao alt">
+      <h2>Portfólio</h2>
+      <p class="subtitulo">Alguns projetos de dados que já fiz no trabalho.</p>
+      <div class="grade">
+        <article class="card projeto">
+          <div class="projeto-img" aria-hidden="true">dbt + Snowflake</div>
+          <h3>Pipelines dbt + Snowflake (Factored)</h3>
+          <p>
+            Otimizei consultas no Snowflake e deixei elas 5x mais rápidas (de 30s pra 6s).
+            Também ajudei a desenhar os modelos dbt das camadas bronze e silver no Databricks,
+            o que cortou 57% do tempo de processamento e economizou cerca de 12 semanas de
+            trabalho manual por ano.
+          </p>
+          <a class="link" href="https://www.linkedin.com/in/eduardomcorrea" target="_blank" rel="noopener">Ver no LinkedIn</a>
+        </article>
+        <article class="card projeto">
+          <div class="projeto-img" aria-hidden="true">Python + Power BI</div>
+          <h3>Automação de relatórios (4Data Driven)</h3>
+          <p>
+            Automatizei em Python um relatório de mais de 250 páginas para o Power BI. A geração
+            que levava 40h passou a levar 10 minutos. Também melhorei as extrações diárias via
+            Google API, que caíram de 25 min para 15s.
+          </p>
+          <a class="link" href="https://www.linkedin.com/in/eduardomcorrea" target="_blank" rel="noopener">Ver no LinkedIn</a>
+        </article>
+        <article class="card projeto">
+          <div class="projeto-img" aria-hidden="true">R + Bayesian Networks</div>
+          <h3>Modelagem preditiva em R (4Data Driven)</h3>
+          <p>
+            Treinei modelos de Redes Bayesianas em R para prever decisões de consumo. Isso
+            aumentou em 15% o alcance das campanhas, chegando a 5 milhões de impressões em
+            20 campanhas.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- contato -->
+    <section id="contato" class="secao">
+      <h2>Contato</h2>
+      <p class="subtitulo">Fale comigo (a validação e o envio são simulados em JavaScript).</p>
+
+      <!-- novalidate pra desligar a validacao do browser -->
+      <form id="formContato" class="form" novalidate>
+        <div class="campo">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" placeholder="Seu nome completo" />
+          <small class="erro" id="erroNome"></small>
+        </div>
+
+        <div class="campo">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="voce@exemplo.com" />
+          <small class="erro" id="erroEmail"></small>
+        </div>
+
+        <div class="campo">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem..."></textarea>
+          <small class="erro" id="erroMensagem"></small>
+        </div>
+
+        <button type="submit" class="botao">Enviar mensagem</button>
+      </form>
+
+      <ul class="contatos-extra">
+        <li><span class="rotulo">email</span> <a class="link" href="mailto:eduardocorrea.dados@gmail.com">eduardocorrea.dados@gmail.com</a></li>
+        <li><span class="rotulo">github</span> <a class="link" href="https://github.com/edumcorrea" target="_blank" rel="noopener">github.com/edumcorrea</a></li>
+        <li><span class="rotulo">linkedin</span> <a class="link" href="https://www.linkedin.com/in/eduardomcorrea" target="_blank" rel="noopener">linkedin.com/in/eduardomcorrea</a></li>
+        <li><span class="rotulo">local</span> Brasil</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- rodape -->
+  <footer class="rodape">
+    <p>© 2026 Jorge Eduardo Miranda Correa - RU 4853599</p>
+  </footer>
+
+  <!-- modal de sucesso depois do envio -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-caixa" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+      <h3 id="modalTitulo">Mensagem enviada com sucesso</h3>
+      <p>Obrigado pelo contato. Responderei em breve (mentirinha).</p>
+      <button id="fecharModal" class="botao">Fechar</button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
